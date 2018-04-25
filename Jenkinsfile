@@ -15,5 +15,10 @@ pipeline {
 				 sh "${MAVEN_HOME}/bin/mvn test"
 			 }
 		 }
+		 stage('Deploy_WebApp') {
+			 steps {
+				 sh 'scp target/WebApp.war vagrant@172.0.0.1:/home/vagrant/tomcat/apache-tomcat-9.0.6'
+			 }
+		 }
 	 }
 }
